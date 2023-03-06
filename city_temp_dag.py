@@ -24,8 +24,8 @@ import logging
 
 client = boto3.client(
         's3',
-        aws_access_key_id='AKIAT7ZRNBQYFOWQSREW',
-        aws_secret_access_key='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')
+        aws_access_key_id='access_key',
+        aws_secret_access_key='secret_access-key')
 
 default_args = {
     'owner' : 'toks',
@@ -40,7 +40,7 @@ def read_and_convert_csv_to_dataframe():
     #Client creation with aws credentials
     
    
-    obj = client.get_object(Bucket = "detochukwuokafor-deliverystream-s3", Key = "temp-folder/city_temperature.csv")
+    obj = client.get_object(Bucket = "bucket_name", Key = "file_path")
 
     data = obj['Body']
 
@@ -79,7 +79,7 @@ checks = checks_and_transformations(df2)
 def create_server_connection(df, table):
     pg_hook = PostgresHook(
         conn_id = 'postgres_default',
-        schema = 'd2b_assessment'
+        schema = 'schema'
     )
     pg_conn=pg_hook.get_conn()
 
@@ -105,7 +105,7 @@ def create_server_connection(df, table):
     cursor.close()
 
     #return pg_conn
-conn= create_server_connection(checks, 'byroneji4734_staging.cities_temperature')
+conn= create_server_connection(checks, 'postgres_table')
 
 def max_avg_temp_query():
     df11 = """(
@@ -143,7 +143,7 @@ dfmax_temp = read_and_convert_query_to_dataframe(max_avgtemp)
 
         
 def upload_to_dataframe_bucket_as_csv(file_name, bucket, object_name):
-    #bucket = "detochukwuokafor-deliverystream-s3"
+    
     file_name =pd.read_json(file_name)
     save_path = "temp-folder/analysedData/"
     """Upload a file to an S3 bucket
@@ -160,13 +160,13 @@ def upload_to_dataframe_bucket_as_csv(file_name, bucket, object_name):
     file_name.to_csv(csv_buffer)
     #df_csv=df_file.to_csv
     s3_resource = boto3.resource('s3',
-        aws_access_key_id='AKIAT7ZRNBQYFOWQSREW',
-        aws_secret_access_key='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'
+        aws_access_key_id='access_key',
+        aws_secret_access_key='secret_key'
                                 )
     
     try:
         s3_resource.Object(bucket , "temp-folder/analysedData/" +object_name+".csv").put(Body=csv_buffer.getvalue())
-    #response = client.upload_to_dataframe_bucket_as_csv(file_name, bucket, object_name)
+        
         print('Successfully uploaded dataframe as CSV to S3 bucket')
     except :
         #logging.error(e)
