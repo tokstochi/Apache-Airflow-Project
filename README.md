@@ -1,4 +1,9 @@
 # Exploring Historical Temperature Data with Apache Airflow and amazon S3
+
+
+![image](https://user-images.githubusercontent.com/91758523/229606385-b3a760b8-6e49-4db0-9e70-54769c107b0b.png)
+Figure 1: A representation of the workflow
+
 This is an Apache Airflow ETL project done with a historic temperature dataset.
 Firstly, all packages and dependencies needed to make the DAG run are imported prior at the top of the script.
 The dataset, which is in a csv format, is stored in an Amazon S3 bucket and will be accessed using already established credentials that will  enable access to the bucket and file path of the aforementioned data set. 
