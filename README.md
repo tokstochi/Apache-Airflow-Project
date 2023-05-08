@@ -24,4 +24,4 @@ Some analysis, like the average maximum temperature in the different cities, was
 
 
 ![image](https://user-images.githubusercontent.com/91758523/236909786-eacc642c-142c-4a95-be10-5f737714c68d.png)
-Figure 2: An image of the dataset uploaded to the PostgreDB
+Figure 2: An image of a part of the dataset uploaded to the PostgreDB
