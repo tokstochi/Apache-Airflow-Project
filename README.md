@@ -23,5 +23,5 @@ Transformations are done to the dataset where and when they are needed before it
 Some analysis, like the average maximum temperature in the different cities, was done on the inserted data set, and the ensuing result was stored in the S3 bucket for record purposes.
 
 
-![image](https://user-images.githubusercontent.com/91758523/236909392-c7bd2066-0a5b-450e-bd33-05abc360a76c.png)
+blob:https://web.whatsapp.com/f6af03ec-685d-46b9-af1b-352c7218e544
 Figure 2: An image of the dataset uploaded to the PostgreDB
