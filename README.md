@@ -13,8 +13,8 @@ Firstly, all packages and dependencies needed to make the DAG run are imported t
 * Python 3.x
 * Docker Desktop
 * Airflow Image pulled and ready to run.
-    ** Start the Airflow web server and scheduler on your docker desktop app:
-      * Access the Airflow web UI at http://localhost:8080/ and turn on the ecommerce_webscraping DAG.
+   * Start the Airflow web server and scheduler on your docker desktop app.
+   * Access the Airflow web UI at http://localhost:8080/ and turn on the City_temp DAG.
 
 
 
